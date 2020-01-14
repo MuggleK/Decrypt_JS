@@ -1,3 +1,3 @@
 对网易云音乐的歌单和具体歌曲的抓取并存储为json文件
 
-包括对加密字符paramas和encSecKey两个字段的解密
+用Python复写加密函数，对加密字符paramas和encSecKey两个字段进行解密
