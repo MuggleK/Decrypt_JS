@@ -1,0 +1,44 @@
+1.第一次请求获取gt，challenge
+2.第二次获取cookie    GeeTestUser
+3.携带GeeTestUser
+
+data = {
+gt: 019924a82c70bb123aae90d483087f94
+challenge: 222a1a114798836d6a0a3732649f7356
+lang: zh-cn
+pt: 0
+client_type: web
+w:   ..
+callback: geetest_1594881259851
+}
+获取 c 数组和 s 随机数	# 大坑！ aeskey只可生成一次，在RSA对aeskey加密时重复调用，必须删除
+
+4.点击触发验证码    需用到上一次结果中的c和s
+
+携带参数和步骤3一致
+
+获取cookie   GeeTestAjaxUser
+
+5.携带GeeTestUser和GeeTestAjaxUser
+
+is_next: true
+type: slide3
+gt: 019924a82c70bb123aae90d483087f94
+challenge: 52178c8a657b6b3d01545e722e05c90b
+lang: zh-cn
+https: true
+protocol: https://
+offline: false
+product: embed
+api_server: api.geetest.com
+isPC: true
+width: 100%
+callback: geetest_1594889752785
+
+得到新的 c 数组，验证码图片，s随机数 （滑块轨迹加密用到）
+
+6.携带GeeTestUser和GeeTestAjaxUser    上一步返回的字典（c，pic，s等）
+解密第三个w
+最后得到validate
+
+7.携带GeeTestUser和GeeTestAjaxUser   validate访问最终接口

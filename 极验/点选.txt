@@ -1,0 +1,30 @@
+点选没有滑块轨迹复杂
+
+最后一步函数内提交的参数：e -> 点选字符坐标 * 32   t完成点选所用时间
+
+函数内重要参数
+
+n -> 携带GeeTestUser和GeeTestAjaxUser所返回的json
+
+o -> 鼠标运动轨迹加密
+
+s = {
+
+'lang': "zh-cn", // 固定值
+'passtime': t,	// 实参 完成点选所用时间
+'a': e,		// 点选相对于全屏的坐标
+'pic': n[$_CAFAk(744)],		// 点选图片 n中的 pic
+'tt': $_FCb(o, n[$_CAEJz(730)], n[$_CAEJz(393)]),	// 第一个参数o，第二个参数为n中的固定c数组，第三个参数为n中随机变量s
+'ep': r[$_CAFAk(755)]()
+
+}
+
+s['rp'] = $_DBf(gt + challenge + passtime)
+
+a = $_GBN[$_DBFJ(278)].$_CFHD()		// RSA
+
+_ = AES.encrypt(gjson.stringify(s),$_GBN[$_DBFJ(278)].$_CFIQ())		// s为最终构成字典，第二个参数为随机aeskey
+
+c = Base64.$_BABD(_)
+
+w = c + a
