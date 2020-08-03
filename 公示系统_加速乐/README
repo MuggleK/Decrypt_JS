@@ -1,0 +1,8 @@
+第一次请求：状态码521，返回结果：sojson对__jsl_clearance进行加密
+
+第二次请求：需携带__jsl_clearance作为cookie即可正常访问
+
+sojson反反调试：1.直接hook形成debugger的动态加密函数为空对象；
+               2.不影响其他代码的情况下删除debugger；
+               3.正则校验（防止代码格式化），全局搜索RegExp，并将校验的函数压缩；
+               4.alert弹窗，可直接删除。
