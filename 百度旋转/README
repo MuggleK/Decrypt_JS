@@ -1,0 +1,5 @@
+百度旋转验证码
+
+只有基本的请求逻辑，轨迹算法和fs参数的js加密
+
+旋转图片具体识别思路可参考：https://blog.csdn.net/weixin_49701447/article/details/108627850
