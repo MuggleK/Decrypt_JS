@@ -1,3 +1,5 @@
+2020.8.11
+
 第一次请求：状态码521，返回结果：sojson对__jsl_clearance进行加密
 
 第二次请求：需携带__jsl_clearance作为cookie即可正常访问
@@ -6,3 +8,23 @@ sojson反反调试：1.直接hook形成debugger的动态加密函数为空对象
                2.不影响其他代码的情况下删除debugger；
                3.正则校验（防止代码格式化），全局搜索RegExp，并将校验的函数压缩；
                4.alert弹窗，可直接删除。
+               
+2020.10.10
+
+公示系统加速乐改为两次521请求才能得到__jsl_clearance
+
+1.第一次请求，设置第一个__jsl_clearance作为cookie，加密方式为jsfuck，直接eval即可
+
+
+2.携带第一次请求生成的cookie再次请求，加密方式Sojson，整体的逻辑就是用md5，sha256，sha1对数据加密并对比加密后的结果，可直接用py改写
+def get_clearance(html):
+    data = json.loads(re.findall('go\((.*?)\)', html)[1])
+    chars_length = len(data.get('chars'))
+    for i in range(chars_length):
+        for j in range(chars_length):
+            result = data.get('bts')[0] + data.get('chars')[i] + data.get('chars')[j] + data.get('bts')[1]
+            b = eval('hashlib.{}()'.format(data.get('ha')))
+            b.update(result.encode(encoding='utf-8'))
+            res = b.hexdigest()
+            if res == data.get('ct'):
+                return result
