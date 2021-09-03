@@ -1,0 +1,3 @@
+企查查部分搜索接口需对加密cookie校验，该cookie与搜索的数据关联
+
+eg. 7a2311cd36fd3eb3380e: b0aee8c05298a010d7aa9b5fd8980606435af7aaa5beb790a94fee2b6b9ade44a85f445c9a975ed5220175c6f3f75f7a244e90fed36fc009f3193a5c012b8b6e
